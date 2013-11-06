@@ -63,8 +63,8 @@ for i in len7packetList:
         qTy = y[e-1].strip().upper()
         
         if qTy !=('TEXT') and qTy !=('PTR') and qTy !=('REDACTED'):
-##            print qTy
-##            print y
+            print qTy
+            print y
             dnsQueries.append(y)
 
             record = y[1]
