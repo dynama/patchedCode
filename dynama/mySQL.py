@@ -52,10 +52,10 @@ def initialize_database():
         "  `src` TEXT NOT NULL,"
         "  PRIMARY KEY (`sqlID`)"
         ") ENGINE=InnoDB")
-    TABLES['sketchyDestinations'] = (
-    "CREATE TABLE `sketchyDestinations` ("
+    TABLES['sourceTable'] = (
+    "CREATE TABLE `sourceTable` ("
         "  `sqlID` int(11) NOT NULL AUTO_INCREMENT,"
-        "  `sketchDst` TEXT NOT NULL,"
+        "  `source` TEXT NOT NULL,"
         "  PRIMARY KEY (`sqlID`)"
         ") ENGINE=InnoDB")
     TABLES['sketchyByDomain'] = (

@@ -3,12 +3,14 @@ import mysql.connector
 from mysql.connector import errorcode
 from mySQL import get_data, get _cnx
 import sys, re
+import config
 # sourceTable is where we put all network queries, source is the attribute
 # sketchySource is where we put naughty queries when they misbehave.   
 global network_address = '10.20.30.40'
+global flush, threshold = config.freqVars()
 
 
-def analyzeTraffic(table):
+def analyzeTraffic(table):-
     cnx = get_cnx()
     data = get_data(cnx, "SELECT src FROM "+ table +" WHERE dst = "+ network_address)
     cursor = cnx.cursor()
