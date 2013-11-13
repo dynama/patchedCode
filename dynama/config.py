@@ -10,3 +10,8 @@ def freqVars():
     flush = 50
     threshold = .8
     return flush, threshold
+
+def networkAdd():
+    network_address = str("10.20.30.40")
+    return network_address
+
