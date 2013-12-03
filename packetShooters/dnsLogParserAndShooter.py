@@ -74,11 +74,14 @@ for i in len7packetList:
 ##print endings                
 ##print dnsQueries
 
-for i in dnsQueries:    
-    packet = IP(dst='8.8.8.8')/UDP()/DNS(rd =1,qd=DNSQR(qname=i[0],qtype=i[1]))
+for i in dnsQueries:  
+    packet = IP(dst='8.8.8.8')/UDP()/DNS(aa =0L,qr=1L,an=DNSRR(rclass=1,ttl=270,rrname="www.website.com", type=16), ns=None)
+    packet2 = IP(dst='8.8.8.8')/UDP()/DNS(rd=1,qd=DNSQR(qname="www.website.com"))
     # structure & qtype => theitgeekchronicles.files.wordpress.com/2012/05/scapyguide1.pdf‎
     
     send(packet)
+    send(packet2)
+
 
 
 

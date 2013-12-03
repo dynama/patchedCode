@@ -63,8 +63,8 @@ for i in len7packetList:
         qTy = y[e-1].strip().upper()
         
         if qTy !=('TEXT') and qTy !=('PTR') and qTy !=('REDACTED'):
-            print qTy
-            print y
+##            print qTy
+##            print y
             dnsQueries.append(y)
 
             record = y[1]
@@ -74,11 +74,13 @@ for i in len7packetList:
 ##print endings                
 ##print dnsQueries
 
-for i in dnsQueries:    
-    packet = IP(dst='8.8.8.8')/UDP()/DNS(rd =1,qd=DNSQR(qname=i[0],qtype=i[1]))
+for i in dnsQueries:  
+    packet = IP(dst='10.2.0.1')/UDP()/DNS(aa =0L,qr=1L,an=DNSRR(rclass=1,ttl=270,rrname="www.website.com", type=16), ns=None))
+    packet2 = IP(dst='10.2.0.1')/UDP()/DNS(rd=1,qd=DNSQR(qname="www.TooManyNumbers987654321987654321.com"))
     # structure & qtype => theitgeekchronicles.files.wordpress.com/2012/05/scapyguide1.pdf‎
     
     send(packet)
+
 
 
 
